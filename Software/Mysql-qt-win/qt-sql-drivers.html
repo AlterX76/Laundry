@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>Software Projects</title>
+  
+  <meta content="K. Sarkies" name="author"><script charset="utf-8" id="injection_graph_func" src="qt-sql-drivers_files/injection_graph_func.js"></script></head><body>
+<table style="width: 100%; text-align: left;" border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr style="font-family: helvetica,arial,sans-serif;">
+      <td colspan="1" rowspan="1" style="text-align: center; background-color: rgb(255, 153, 0); vertical-align: top;">
+      <h1 style="background-color: rgb(255, 153, 0);">Building QT4
+MySQL Drivers with MinGW<br>
+      </h1>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1" style="vertical-align: top;"><big><span style="font-family: helvetica,arial,sans-serif; font-weight: bold;"></span></big><br style="font-family: helvetica,arial,sans-serif;">
+      <span style="font-family: helvetica,arial,sans-serif;">This is a
+short howto for building MySQL drivers for QT4 on Windows using MinGW.
+The TrollTech recipe does not work directly with the MinGW suite
+because MySQL is compiled using the Microsoft compiler, while MinGW is
+a port of the GNU *nix compilation tools.<br>
+      <br>
+There was a <a href="http://lists.trolltech.com/qt-interest/2005-07/thread00014-0.html">discussion</a>
+on the QT forums about the difficulties encountered with this
+combination of tools. I will simply expand on this and fill in some
+gaps. Acknowledgements are given to the people who did the legwork in
+the above discussion. Another howto that appeared later and is similar
+to this is given at <a href="http://qtnode.net/wiki/Category:Qt_Setup">qtnode</a>.<br>
+      <br>
+You should have installed QT4. I recommend compiling it for
+debug-and-release so that it will work smoothly with IDEs such as
+Eclipse (the installation binary appears only to be compiled for
+release).<br>
+      <br>
+      <span style="font-weight: bold;">MySQL Installation</span><br>
+      <br>
+Download the MySQL package for Windows. The latest stable release is <a href="http://dev.mysql.com/downloads/mysql/5.0.html">5.0.27</a> at the
+time of writing. The "Windows Essentials</span><span style="font-family: Helvetica,Arial,sans-serif;"> (x86)</span><span style="font-family: helvetica,arial,sans-serif;">" package includes
+the basic client libraries and server.</span><span style="font-family: Helvetica,Arial,sans-serif;"> It is worthwhile
+reading the platform notes for MySQL.</span><span style="font-family: helvetica,arial,sans-serif;"><br>
+      <br>
+The </span><span style="font-family: Helvetica,Arial,sans-serif;">"Windows
+(x86) ZIP/Setup.EXE" package claims to contain the full installation
+including libraries for the embedded server. This package however seems
+to have omitted the Embedded server libraries in version 5 (the
+non-installer package has an empty directory for the embedded
+libraries). These libraries are present in version 4 so you may need to
+grab an earlier version from the archives.</span><br>
+      <span style="font-family: helvetica,arial,sans-serif;"> <br>
+There are at least three ways of making a QT application work with
+MySQL:<br>
+      <br>
+&nbsp;&nbsp; 1. Access a MySQL server over a network, typically on a
+*nix or Windows server.<br>
+&nbsp;&nbsp; 2. Access a MySQL server running on the same machine as
+the application.<br>
+&nbsp;&nbsp; 3. Incorporate an embedded MySQL server (provided by
+the MySQL package).<br>
+      <br>
+The latter allows an application to be compiled stand-alone with a
+MySQL server incorporated, avoiding the need for end-users to setup a
+full MySQL server. You need the full installer for this.<br>
+      <br>
+Choose a custom installation, and you will be presented with a number
+of
+optional parts of the package to install. The following are typical of
+the Essentials package, but there are more in the full packages:<br>
+      <br>
+&nbsp;&nbsp; 1. MySQL Server<br>
+&nbsp;&nbsp; 2. Client Programs<br>
+&nbsp;&nbsp; 3. C Include Files/Lib Files<br>
+      <br>
+Unless you need a MySQL server running on the same machine as the
+application, you only need to select part 3 of the package
+to install. It is recommended that part 2 also be installed as the
+client library <span style="font-style: italic;">mysql.dll</span> is
+sometimes unavailable in part 3.<br>
+      <br>
+Assume that you have selected the location <span style="font-style: italic;">C:\mysql</span> for installation of the
+files, although you can choose any location and change the paths
+accordingly in the
+following instructions. You should avoid using
+directories with spaces in them, such as <span style="font-style: italic;">Program Files</span>, as it makes it
+difficult for compilation under MinGW.<br>
+      <br>
+      <span style="font-weight: bold;">Creating the MySQL client library</span><br>
+      <br>
+The client libraries <span style="font-style: italic;">(libmysql.dll</span>
+and <span style="font-style: italic;">libmysql.lib)</span> that are
+shipped with MySQL are compiled with the Microsoft compiler and cannot
+be linked using the MinGW compiler. Therefore, we first need to create
+a MinGW compatible library out of <span style="font-style: italic;">libmysql.dll.</span><br>
+      <br>
+This can be done from the command line as follows:<br>
+      <br>
+      <span style="font-style: italic;"># cd c:\mysql\lib\opt</span><br style="font-style: italic;">
+      <span style="font-style: italic;"># reimp -d libmysql.lib</span><br style="font-style: italic;">
+      <span style="font-style: italic;"># dlltool -k --input-def
+libmysql.def --dllname libmysql.dll --output-lib libmysql.a</span><br style="font-style: italic;">
+      <br>
+      <span style="font-style: italic;">reimp</span> is a tool to
+convert Microsoft's new-style (short) import libraries to be compatible
+with the Win32 ports of the GNU tools (MinGW, Cygwin). It
+reads the MS import library and writes all the library imports to a
+corresponding </span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-style: italic;">libmysql.def</span></span><span style="font-family: helvetica,arial,sans-serif;"> file used by <span style="font-style: italic;">dlltool</span> to create the import
+library.<br>
+      <br>
+      <span style="font-style: italic;">dlltool</span> takes the </span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-style: italic;">libmysql.def</span></span><span style="font-family: helvetica,arial,sans-serif;"> file that was
+created by <span style="font-style: italic;">reimp,</span> and creates
+the </span><span style="font-family: helvetica,arial,sans-serif;">GNU</span><span style="font-family: helvetica,arial,sans-serif;"> compatible library <span style="font-style: italic;">libmysql.a</span>.<br>
+      <br>
+Both these tools are found in mingw-utils.<br>
+      <br>
+      <span style="font-weight: bold;">Building the QMYSQL plugin dll</span><br>
+      <br>
+Build the Qt MySQL plugin based on the above MinGW compatible library
+using the following steps. This assumes that QT has been installed at <span style="font-style: italic;">C:\qt</span> however it is simple enough
+to substitute </span><span style="font-family: helvetica,arial,sans-serif;">the path that you
+have selected </span><span style="font-family: helvetica,arial,sans-serif;">into the following
+commands. You
+need the MySQL </span><span style="font-family: helvetica,arial,sans-serif;">C Include Files/Lib
+Files package for this step.</span><br>
+      <span style="font-family: helvetica,arial,sans-serif;"> <br>
+      <span style="font-style: italic;"># cd
+c:\qt\src\plugins\sqldrivers\mysql</span><br style="font-style: italic;">
+      <span style="font-style: italic;"># qmake -o Makefile
+"INCLUDEPATH+=C:\MYSQL\INCLUDE"&nbsp; "LIBS+=-LC:\MYSQL\LIB\OPT
+-lmysql"&nbsp; mysql.pro</span><br style="font-style: italic;">
+      <span style="font-style: italic;"># mingw32-make</span><br style="font-style: italic;">
+      <br>
+The files </span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-style: italic;">qsqlmysql.dll, </span></span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-style: italic;">qsqlmysqld.dll, </span></span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-style: italic;">libqsqlmysql.a, </span></span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-style: italic;"> </span></span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-style: italic;">libqsqlmysqld.a</span> will appear in your
+      </span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-style: italic;">c:\qt\plugins\sqldrivers</span> directory.<br>
+      <br>
+      </span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-style: italic;"></span>Make sure that <span style="font-style: italic;">libmysql.dll</span>
+is in your path. This is located in the </span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-style: italic;">C:\mysql\bin</span> directory which can be
+placed in the path environment variable and is provided by the MySQL
+client libraries (it is also included in the </span><span style="font-family: helvetica,arial,sans-serif;">Include Files/Lib
+Files package in the full version of MySQL5)</span><span style="font-family: helvetica,arial,sans-serif;">.<br>
+      <br>
+      </span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-weight: bold;">MySQL Embedded Server</span></span><br>
+      <span style="font-family: helvetica,arial,sans-serif;"><br>
+This is a useful way of providing a stand-alone application that
+incorporates a database server. As noted above, the embedded server
+libraries seem to have disappeared from the MySQL 5 releases, so you
+will need to go back to MySQL 4 or compile MySQL 5 from source with the
+embedded server option. To keep it simple, obtain the </span><span style="font-family: Helvetica,Arial,sans-serif;">"Windows (x86)
+ZIP/Setup.EXE" package for MySQL 4.1.22 and install only the Developer
+Components.</span><br>
+      <span style="font-family: helvetica,arial,sans-serif;"><br>
+Locate the <span style="font-style: italic;">libmysqld.lib</span> file
+in <span style="font-style: italic;">c:\mysql\Embedded\DLL\release</span>
+and make the conversion of the library file to the GNU compatible form:</span><span style="font-family: helvetica,arial,sans-serif;"></span><br>
+      <span style="font-family: helvetica,arial,sans-serif;"><br>
+      </span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-style: italic;"># cd c:\mysql\</span></span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-style: italic;">Embedded\</span></span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-style: italic;">DLL\</span></span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-style: italic;">release</span></span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-style: italic;"></span><br style="font-style: italic;">
+      <span style="font-style: italic;"># reimp -d libmysqld.lib</span><br style="font-style: italic;">
+      <span style="font-style: italic;"># dlltool -k --input-def
+libmysqld.def --dllname libmysqld.dll --output-lib libmysqld.a</span><br style="font-style: italic;">
+      <br>
+      <span style="font-style: italic;"></span></span><span style="font-family: helvetica,arial,sans-serif;"></span><span style="font-family: Helvetica,Arial,sans-serif;">Change
+the code in the source file <span style="font-style: italic;">c:\qt\src\sql\drivers\mysql\qsql_mysql.cpp</span>
+to the lines below (this is near the bottom of the file) since the </span><span style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">mysql_get_client_version()</span><span style="font-family: Helvetica,Arial,sans-serif;"> function call
+appears to have changed or disappeared from the MySQL</span><span style="font-family: Helvetica,Arial,sans-serif;"></span><span style="font-family: Helvetica,Arial,sans-serif;"> API.<br>
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+      </span><span style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">//#if
+MYSQL_VERSION_ID &gt;= 40108</span><br style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">//
+d-&gt;preparedQuerysEnabled = mysql_get_client_version() &gt;= 40108</span><br style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">//
+&amp;&amp; mysql_get_server_version(d-&gt;mysql) &gt;= 40100;</span><br style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-style: italic; font-family: Helvetica,Arial,sans-serif;"></span><span style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">//#else</span><br style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">//
+d-&gt;preparedQuerysEnabled = false;</span><br style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">//#endif</span><br style="font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">d-&gt;preparedQuerysEnabled
+= true;</span><br style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-style: italic; font-family: Helvetica,Arial,sans-serif;"></span><br style="font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-family: Helvetica,Arial,sans-serif;">At the top
+of this file is a section that needs to be commented out as follows:<br>
+      <br style="font-family: Helvetica,Arial,sans-serif;">
+      </span><span style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">//#ifdef
+Q_OS_WIN32</span><br style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">//
+comment the next line out if you want to use MySQL/embedded on Win32
+systems.</span><br style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">//
+note that it will crash if you don't statically link to the mysql/e
+library!</span><br style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">//#
+define Q_NO_MYSQL_EMBEDDED</span><br style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-style: italic; font-family: Helvetica,Arial,sans-serif;">//#endif<br>
+      <br>
+      </span><span style="font-family: Helvetica,Arial,sans-serif;">The
+advice is to be taken seriously. We will need to statically link the <span style="font-style: italic;">libmysqld.a</span> file. If MySQL server
+is to be incorporated into an application, then it is likely that Qt
+would also be statically compiled with the application, as Qt is not
+common in the Windows world.<br>
+      <span style="font-weight: bold; font-style: italic;"></span><br>
+Now do the following for static compilation of Qt and MySQL Embedded:<br>
+      <br>
+      </span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-style: italic;"># cd
+c:\qt</span><br style="font-style: italic;">
+      <span style="font-style: italic;"></span></span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-style: italic;"># mingw32-make clean</span><br style="font-style: italic;">
+      </span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-style: italic;"># configure -debug-and-release
+-static -qt-sql-mysql </span></span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-style: italic;">-l mysqld </span></span><span style="font-family: helvetica,arial,sans-serif;"><span style="font-style: italic;">-I c:\mysql\include -L
+c:\mysql\embedded\dll\release<br>
+      </span><span style="font-style: italic;"># mingw32-make sub-src</span><br style="font-style: italic;">
+      </span><br style="font-family: Helvetica,Arial,sans-serif;">
+      <span style="font-style: italic; font-family: Helvetica,Arial,sans-serif;"></span><span style="font-family: Helvetica,Arial,sans-serif;">The third option -l
+specifies the libmysqld.a library to use, the second (capital i)
+specifies the directory of the MySQL include files and the final -L </span><span style="font-family: Helvetica,Arial,sans-serif;">specifies</span><span style="font-family: Helvetica,Arial,sans-serif;"> the </span><span style="font-family: Helvetica,Arial,sans-serif;">directory of the MySQL</span><span style="font-family: Helvetica,Arial,sans-serif;"> library file. The <span style="font-style: italic;">make sub-src</span> line ensures that the
+examples are not built. This not only cuts down the compilation time,
+but also the disk space as each example is built with the full Qt
+static linkage.<br>
+      <br>
+This compiles without errors, but I have not yet attempted to compile
+an application to make use of the embedded MySQL server.<br>
+      </span> <br>
+      <span style="font-style: italic;"></span></td>
+    </tr>
+  </tbody>
+</table>
+<div style="text-align: center;">
+<hr style="width: 100%; height: 2px;"><br>
+</div>
+<span style="font-weight: bold; font-family: arial;">Contact:</span><span style="font-family: arial;">
+My email address can be constructed
+from the
+username <span style="font-style: italic;">"ksarkies"</span> and the
+domain <span style="font-style: italic;">internode.on.net</span>
+in the
+usual
+way.<br>
+</span>
+<hr style="width: 100%; height: 2px;"><span style="font-family: arial;"><br>
+</span><small style="font-family: Arial;"><small>First<small><small> </small></small>created
+11 January 2007<br>
+Last modified </small></small><small style="font-family: Arial;"><small>13
+January 2007</small></small><br>
+<small style="font-family: Arial;"><small>© Ken
+Sarkies 2007<br>
+<br style="font-family: Arial;">
+</small></small>
+
+</body></html>

@@ -1,0 +1,16 @@
+INPUT(
+./debug\main.o
+./debug\DBConnector.o
+./debug\frmAccetazione.o
+./debug\frmMainLaundry.o
+./debug\frmNuovoCliente.o
+./debug\frmDBSettings.o
+./debug\widgetKeyBoard.o
+./debug\QKeyPushButton.o
+./debug\moc_frmMainLaundry.o
+./debug\moc_frmNuovoCliente.o
+./debug\moc_frmDBSettings.o
+./debug\moc_widgetKeyBoard.o
+./debug\moc_QKeyPushButton.o
+./debug\qrc_laundry.o
+);

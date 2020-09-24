@@ -1,0 +1,16 @@
+INPUT(
+./release\main.o
+./release\DBConnector.o
+./release\frmAccetazione.o
+./release\frmMainLaundry.o
+./release\frmNuovoCliente.o
+./release\frmDBSettings.o
+./release\widgetKeyBoard.o
+./release\QKeyPushButton.o
+./release\moc_frmMainLaundry.o
+./release\moc_frmNuovoCliente.o
+./release\moc_frmDBSettings.o
+./release\moc_widgetKeyBoard.o
+./release\moc_QKeyPushButton.o
+./release\qrc_laundry.o
+);

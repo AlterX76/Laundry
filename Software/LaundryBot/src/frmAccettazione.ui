@@ -1,0 +1,261 @@
+<ui version="4.0" >
+ <class>frmAccettazione</class>
+ <widget class="QWidget" name="frmAccettazione" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>814</width>
+    <height>623</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string/>
+  </property>
+  <property name="windowIcon" >
+   <iconset/>
+  </property>
+  <layout class="QHBoxLayout" >
+   <item>
+    <layout class="QHBoxLayout" >
+     <item>
+      <layout class="QVBoxLayout" >
+       <item>
+        <widget class="QLabel" name="lblInfoAccettazione" >
+         <property name="text" >
+          <string>Pezzi che si stanno acquisendo:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListView" name="listViewPezziOrdinati" >
+         <property name="dragEnabled" >
+          <bool>true</bool>
+         </property>
+         <property name="dragDropMode" >
+          <enum>QAbstractItemView::NoDragDrop</enum>
+         </property>
+         <property name="alternatingRowColors" >
+          <bool>true</bool>
+         </property>
+         <property name="movement" >
+          <enum>QListView::Static</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType" >
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" >
+          <size>
+           <width>40</width>
+           <height>5</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" >
+         <item>
+          <widget class="QPushButton" name="pushButton_6" >
+           <property name="text" >
+            <string>PushButton</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_7" >
+           <property name="text" >
+            <string>PushButton</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_5" >
+           <property name="text" >
+            <string>PushButton</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" >
+       <item>
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType" >
+          <enum>QSizePolicy::Expanding</enum>
+         </property>
+         <property name="sizeHint" >
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" >
+         <item>
+          <widget class="QWidget" native="1" name="widget" />
+         </item>
+         <item>
+          <layout class="QHBoxLayout" >
+           <item>
+            <widget class="QPushButton" name="pushButton_4" >
+             <property name="maximumSize" >
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="text" >
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_3" >
+             <property name="maximumSize" >
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="text" >
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_2" >
+             <property name="maximumSize" >
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="text" >
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton" >
+             <property name="maximumSize" >
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="text" >
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer>
+             <property name="orientation" >
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" >
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QToolBox" name="toolTastierino" >
+           <property name="minimumSize" >
+            <size>
+             <width>350</width>
+             <height>16</height>
+            </size>
+           </property>
+           <property name="maximumSize" >
+            <size>
+             <width>350</width>
+             <height>1200</height>
+            </size>
+           </property>
+           <property name="font" >
+            <font>
+             <weight>75</weight>
+             <italic>true</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="contextMenuPolicy" >
+            <enum>Qt::NoContextMenu</enum>
+           </property>
+           <property name="frameShape" >
+            <enum>QFrame::Box</enum>
+           </property>
+           <property name="frameShadow" >
+            <enum>QFrame::Raised</enum>
+           </property>
+           <property name="currentIndex" >
+            <number>0</number>
+           </property>
+           <widget class="QWidget" name="templateTastierino" >
+            <property name="geometry" >
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>346</width>
+              <height>521</height>
+             </rect>
+            </property>
+            <attribute name="label" >
+             <string>Template</string>
+            </attribute>
+            <layout class="QVBoxLayout" >
+             <item>
+              <widget class="QFrame" name="frameTastierino" >
+               <property name="frameShape" >
+                <enum>QFrame::Box</enum>
+               </property>
+               <property name="frameShadow" >
+                <enum>QFrame::Raised</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="frameTipoAzione" >
+               <property name="frameShape" >
+                <enum>QFrame::Panel</enum>
+               </property>
+               <property name="frameShadow" >
+                <enum>QFrame::Plain</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,571 @@
+<ui version="4.0" >
+ <class>frmNuovoCliente</class>
+ <widget class="QWidget" name="frmNuovoCliente" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>548</height>
+   </rect>
+  </property>
+  <property name="minimumSize" >
+   <size>
+    <width>400</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="contextMenuPolicy" >
+   <enum>Qt::NoContextMenu</enum>
+  </property>
+  <property name="windowTitle" >
+   <string>Nuovo Cliente</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="laundry.qrc" >:/NuovoUtente/Xiria 1.1.2/Xiria 1.1.2/128x128/apps/personal.png</iconset>
+  </property>
+  <layout class="QVBoxLayout" >
+   <item>
+    <widget class="QFrame" name="frame" >
+     <property name="frameShape" >
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow" >
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" >
+      <item>
+       <layout class="QVBoxLayout" >
+        <item>
+         <layout class="QVBoxLayout" >
+          <item>
+           <layout class="QHBoxLayout" >
+            <item>
+             <layout class="QVBoxLayout" >
+              <property name="spacing" >
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lblCognome" >
+                <property name="font" >
+                 <font>
+                  <family>Arial</family>
+                  <pointsize>10</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text" >
+                 <string>Cognome (*):</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="txtCognome" >
+                <property name="acceptDrops" >
+                 <bool>false</bool>
+                </property>
+                <property name="maxLength" >
+                 <number>45</number>
+                </property>
+                <property name="frame" >
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <spacer>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType" >
+               <enum>QSizePolicy::Minimum</enum>
+              </property>
+              <property name="sizeHint" >
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" >
+              <property name="spacing" >
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lblNome" >
+                <property name="font" >
+                 <font>
+                  <family>Arial</family>
+                  <pointsize>10</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text" >
+                 <string>Nome (*):</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="txtNome" >
+                <property name="acceptDrops" >
+                 <bool>false</bool>
+                </property>
+                <property name="maxLength" >
+                 <number>45</number>
+                </property>
+                <property name="frame" >
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer>
+            <property name="orientation" >
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType" >
+             <enum>QSizePolicy::Minimum</enum>
+            </property>
+            <property name="sizeHint" >
+             <size>
+              <width>556</width>
+              <height>16</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" >
+            <property name="spacing" >
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="lblIndirizzo" >
+              <property name="font" >
+               <font>
+                <family>Arial</family>
+                <pointsize>10</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text" >
+               <string>Indirizzo di residenza:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="txtIndirizzo" />
+            </item>
+            <item>
+             <layout class="QHBoxLayout" >
+              <property name="spacing" >
+               <number>0</number>
+              </property>
+              <item>
+               <layout class="QVBoxLayout" >
+                <property name="spacing" >
+                 <number>0</number>
+                </property>
+                <item>
+                 <spacer>
+                  <property name="orientation" >
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeType" >
+                   <enum>QSizePolicy::Minimum</enum>
+                  </property>
+                  <property name="sizeHint" >
+                   <size>
+                    <width>20</width>
+                    <height>16</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lblCodiceFiscale" >
+                  <property name="font" >
+                   <font>
+                    <family>Arial</family>
+                    <pointsize>10</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text" >
+                   <string>Codice fiscale/Parita iva:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="txtCodiceFiscaleIva" >
+                  <property name="minimumSize" >
+                   <size>
+                    <width>0</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="acceptDrops" >
+                   <bool>false</bool>
+                  </property>
+                  <property name="maxLength" >
+                   <number>30</number>
+                  </property>
+                  <property name="frame" >
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType" >
+                 <enum>QSizePolicy::Minimum</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" >
+                <property name="spacing" >
+                 <number>0</number>
+                </property>
+                <item>
+                 <spacer>
+                  <property name="orientation" >
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeType" >
+                   <enum>QSizePolicy::Minimum</enum>
+                  </property>
+                  <property name="sizeHint" >
+                   <size>
+                    <width>20</width>
+                    <height>16</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lblEmail" >
+                  <property name="font" >
+                   <font>
+                    <family>Arial</family>
+                    <pointsize>10</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text" >
+                   <string>Indirizzo di Posta Elettronica:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="txtEmail" >
+                  <property name="acceptDrops" >
+                   <bool>false</bool>
+                  </property>
+                  <property name="maxLength" >
+                   <number>40</number>
+                  </property>
+                  <property name="frame" >
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" >
+              <property name="spacing" >
+               <number>0</number>
+              </property>
+              <item>
+               <layout class="QVBoxLayout" >
+                <property name="spacing" >
+                 <number>0</number>
+                </property>
+                <item>
+                 <spacer>
+                  <property name="orientation" >
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeType" >
+                   <enum>QSizePolicy::Minimum</enum>
+                  </property>
+                  <property name="sizeHint" >
+                   <size>
+                    <width>20</width>
+                    <height>16</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lblCellulare" >
+                  <property name="font" >
+                   <font>
+                    <family>Arial</family>
+                    <pointsize>10</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text" >
+                   <string>Telefono mobile:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="txtCellulare" >
+                  <property name="acceptDrops" >
+                   <bool>false</bool>
+                  </property>
+                  <property name="maxLength" >
+                   <number>30</number>
+                  </property>
+                  <property name="frame" >
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <spacer>
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType" >
+                 <enum>QSizePolicy::Minimum</enum>
+                </property>
+                <property name="sizeHint" >
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" >
+                <property name="spacing" >
+                 <number>0</number>
+                </property>
+                <item>
+                 <spacer>
+                  <property name="orientation" >
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeType" >
+                   <enum>QSizePolicy::Minimum</enum>
+                  </property>
+                  <property name="sizeHint" >
+                   <size>
+                    <width>20</width>
+                    <height>16</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lblTelefono" >
+                  <property name="font" >
+                   <font>
+                    <family>Arial</family>
+                    <pointsize>10</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text" >
+                   <string>Telefono Abitazione (*):</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="txtTelefono" >
+                  <property name="acceptDrops" >
+                   <bool>false</bool>
+                  </property>
+                  <property name="maxLength" >
+                   <number>30</number>
+                  </property>
+                  <property name="frame" >
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <spacer>
+              <property name="orientation" >
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" >
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer>
+          <property name="orientation" >
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" >
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" >
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label" >
+            <property name="text" >
+             <string>(*) Campi obbligatori</string>
+            </property>
+            <property name="alignment" >
+             <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer>
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" >
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" >
+            <item>
+             <widget class="QPushButton" name="cmdMemorizzaNuovoCliente" >
+              <property name="cursor" >
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="focusPolicy" >
+               <enum>Qt::NoFocus</enum>
+              </property>
+              <property name="toolTip" >
+               <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;">Inserisci in archivio il nuovo cliente&lt;/p>&lt;/body>&lt;/html></string>
+              </property>
+              <property name="layoutDirection" >
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="text" >
+               <string/>
+              </property>
+              <property name="icon" >
+               <iconset resource="laundry.qrc" >:/Inserisci/Xiria 1.1.2/Xiria 1.1.2/128x128/devices/3floppy_unmount.png</iconset>
+              </property>
+              <property name="iconSize" >
+               <size>
+                <width>160</width>
+                <height>64</height>
+               </size>
+              </property>
+              <property name="flat" >
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="lblAnagraficaNuovoCliente_3" >
+              <property name="font" >
+               <font>
+                <pointsize>9</pointsize>
+                <weight>75</weight>
+                <italic>true</italic>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text" >
+               <string>Memorizza Nuovo Cliente</string>
+              </property>
+              <property name="textFormat" >
+               <enum>Qt::PlainText</enum>
+              </property>
+              <property name="scaledContents" >
+               <bool>false</bool>
+              </property>
+              <property name="alignment" >
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="textInteractionFlags" >
+               <set>Qt::NoTextInteraction</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>txtCognome</tabstop>
+  <tabstop>txtNome</tabstop>
+  <tabstop>txtIndirizzo</tabstop>
+  <tabstop>txtCodiceFiscaleIva</tabstop>
+  <tabstop>txtEmail</tabstop>
+  <tabstop>txtCellulare</tabstop>
+  <tabstop>txtTelefono</tabstop>
+ </tabstops>
+ <resources>
+  <include location="laundry.qrc" />
+ </resources>
+ <connections/>
+</ui>

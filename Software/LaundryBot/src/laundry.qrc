@@ -1,0 +1,89 @@
+<RCC>
+    <qresource prefix="/SplashImage" >
+	<file alias="splash">Xiria 1.1.2/Xiria 1.1.2/splash.jpg</file>
+    </qresource>
+    <qresource prefix="/Anagrafica" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/128x128/apps/packagesettings.png</file>
+    </qresource>
+    <qresource prefix="/Cancel" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/32x32/actions/no.png</file>
+    </qresource>
+    <qresource prefix="/Chiusura" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/128x128/apps/mac.png</file>
+    </qresource>
+    <qresource prefix="/Commessa" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/128x128/apps/vcalendar.png</file>
+    </qresource>
+    <qresource prefix="/ConnessioneDB" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/128x128/devices/nfs_mount.png</file>
+    </qresource>
+    <qresource prefix="/DB" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/32x32/actions/db.png</file>
+    </qresource>
+    <qresource prefix="/DBSettings" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/128x128/apps/networksettings.png</file>
+    </qresource>
+    <qresource prefix="/DisconnessoneDB" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/128x128/devices/nfs_unmount.png</file>
+    </qresource>
+    <qresource prefix="/Exit" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/32x32/actions/exit.png</file>
+    </qresource>
+    <qresource prefix="/GestioneCommessa" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/128x128/apps/krdc.png</file>
+    </qresource>
+    <qresource prefix="/Inserisci" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/128x128/devices/3floppy_unmount.png</file>
+    </qresource>
+    <qresource prefix="/LettoreBarcode" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/128x128/apps/scanner.png</file>
+    </qresource>
+    <qresource prefix="/MainWindowIcon" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/32x32/actions/agt_home.png</file>
+    </qresource>
+    <qresource prefix="/NuovaCommessa" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/128x128/apps/fsview.png</file>
+    </qresource>
+    <qresource prefix="/NuovoUtente" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/128x128/apps/personal.png</file>
+    </qresource>
+    <qresource prefix="/OK" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/32x32/actions/filesaveas.png</file>
+    </qresource>
+    <qresource prefix="/Reload" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/32x32/actions/reload.png</file>
+    </qresource>
+    <qresource prefix="/ReportCommesseAperte" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/128x128/apps/easymoblog.png</file>
+    </qresource>
+    <qresource prefix="/ReportStoricoCliente" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/128x128/apps/file-manager1.png</file>
+    </qresource>
+    <qresource prefix="/RicercaStoricoCliente" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/128x128/apps/kghostview.png</file>
+    </qresource>
+    <qresource prefix="/RicercaUtente" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/128x128/apps/linuxconf.png</file>
+    </qresource>
+    <qresource prefix="/Riconnect" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/32x32/actions/db_comit.png</file>
+    </qresource>
+    <qresource prefix="/Salva" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/128x128/devices/3floppy_mount.png</file>
+    </qresource>
+    <qresource prefix="/Settings" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/128x128/apps/agt_utilities.png</file>
+    </qresource>
+    <qresource prefix="/StampaCommessa" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/128x128/apps/kjobviewer.png</file>
+    </qresource>
+    <qresource prefix="/TastieraVirtuale" >
+        <file alias="logo" >Xiria 1.1.2/Xiria 1.1.2/128x128/apps/key_bindings.png</file>
+    </qresource>
+    <qresource prefix="/Tastierino" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/128x128/apps/scribus.png</file>
+    </qresource>
+    <qresource prefix="/Trash" >
+        <file>Xiria 1.1.2/Xiria 1.1.2/128x128/apps/ark.png</file>
+    </qresource>
+</RCC>

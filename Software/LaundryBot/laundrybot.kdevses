@@ -1,0 +1,37 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE KDevPrjSession>
+<KDevPrjSession>
+ <DocsAndViews NumberOfDocuments="4" >
+  <Doc0 NumberOfViews="1" URL="file:///home/giovanni/LaundryBot/src/frmMainLaundry.cpp" >
+   <View0 Encoding="" line="48" Type="Source" />
+  </Doc0>
+  <Doc1 NumberOfViews="1" URL="file:///home/giovanni/LaundryBot/src/GlobalConsts.h" >
+   <View0 Encoding="" line="34" Type="Source" />
+  </Doc1>
+  <Doc2 NumberOfViews="1" URL="file:///home/giovanni/LaundryBot/src/frmMainLaundry.h" >
+   <View0 Encoding="" line="46" Type="Source" />
+  </Doc2>
+  <Doc3 NumberOfViews="1" URL="file:///home/giovanni/LaundryBot/src/ui_frmMainLaundry.h" >
+   <View0 Encoding="" line="137" Type="Source" />
+  </Doc3>
+ </DocsAndViews>
+ <pluginList>
+  <kdevdebugger>
+   <breakpointList/>
+   <showInternalCommands value="0" />
+  </kdevdebugger>
+  <kdevastyle>
+   <Extensions ext="*.cpp *.h,*.c *.h,*.cxx *.hxx,*.c++ *.h++,*.cc *.hh,*.C *.H,*.diff,*.inl,*.java,*.moc,*.patch,*.tlh,*.xpm" />
+   <AStyle IndentPreprocessors="0" FillCount="4" PadParenthesesOut="1" IndentNamespaces="1" IndentLabels="1" Fill="Tabs" MaxStatement="40" Brackets="Attach" MinConditional="-1" IndentBrackets="0" PadParenthesesUn="1" BlockBreak="0" KeepStatements="1" KeepBlocks="1" BlockIfElse="1" IndentSwitches="1" PadOperators="1" FStyle="UserDefined" IndentCases="0" FillEmptyLines="0" BracketsCloseHeaders="1" BlockBreakAll="0" PadParenthesesIn="1" IndentClasses="1" IndentBlocks="0" FillForce="1" />
+  </kdevastyle>
+  <kdevbookmarks>
+   <bookmarks/>
+  </kdevbookmarks>
+  <kdevvalgrind>
+   <executable path="" params="" />
+   <valgrind path="/usr/bin/valgrind" params=" --tool=memcheck --leak-check=yes" />
+   <calltree path="" params="" />
+   <kcachegrind path="" />
+  </kdevvalgrind>
+ </pluginList>
+</KDevPrjSession>
